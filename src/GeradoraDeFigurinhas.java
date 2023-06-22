@@ -9,8 +9,6 @@ import javax.imageio.ImageIO;
 public class GeradoraDeFigurinhas {
     void cria(InputStream inputStream, String nomeArquivo) throws Exception{
         // leitura da imagem
-        // FileImageInputStream inputStream = new FileImageInputStream(new File("entrada/shawshank.jpg"));
-        // InputStream inputStream = (FileInputStream) new URL().openStream();
         BufferedImage imagemOriginal = ImageIO.read(inputStream);
 
         // cria nova imagem em memória com transparência e com tamanho novo
@@ -24,17 +22,15 @@ public class GeradoraDeFigurinhas {
         graphics.drawImage(imagemOriginal, 0, 0, null);
 
         // configurar a fonte
-        Font fonte = new Font(Font.SANS_SERIF, Font.BOLD, 60);
+        Font fonte = new Font(Font.SANS_SERIF, Font.BOLD, 90);
         graphics.setFont(fonte);
         graphics.setColor(Color.YELLOW);
-
+        
         // escrever uma frase na nova imagem
-        graphics.drawString("Topzera", 100, novaAltura - 100);
+        graphics.drawString("Topzera", (largura/2) - 170, novaAltura - 60);
         
         // escrever a nova imagem em um arquivo
         ImageIO.write(novaImagem, "png", new File(nomeArquivo));
-
-
     }
 
 }
